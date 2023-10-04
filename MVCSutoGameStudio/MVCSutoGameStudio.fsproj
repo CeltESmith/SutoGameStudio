@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -21,6 +21,9 @@
     <ProjectReference Include="..\CRUDApps.DataAccess.EF.SutoStudio\CRUDApps.DataAccess.EF.SutoStudio.csproj" />
   </ItemGroup>
 
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
 
 </Project>
