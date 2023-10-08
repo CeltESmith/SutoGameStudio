@@ -1,19 +1,19 @@
-﻿using CRUDApps.DataAccess.EF.Context;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CRUDApps.DataAccess.EF.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace CRUDApps.DataAccess.EF.Repositories
 {
-    public class LoyaltyChartRepository
+    public class LoyaltyChartsRepository
     {
         private SutoGameStudioContext _dbContext;
 
-        public LoyaltyChartRepository(SutoGameStudioContext dbContext)
+        public LoyaltyChartsRepository(SutoGameStudioContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -30,10 +30,10 @@ namespace CRUDApps.DataAccess.EF.Repositories
         {
             LoyaltyCharts existingLoyalty = _dbContext.LoyaltyCharts.Find(loyaltyChart.LoyaltyChartId);
 
-            existingLoyalty.UserName = loyaltyChart.UserName;
-            existingLoyalty.OwnFpsblastGame = loyaltyChart.OwnFpsblastGame;
-            existingLoyalty.OwnMmoslasherGame = loyaltyChart.OwnMmoslasherGame;
-            existingLoyalty.OwnRpgstoryMakerGame = loyaltyChart.OwnRpgstoryMakerGame;
+            existingLoyalty.UserId = loyaltyChart.UserId;
+            existingLoyalty.FpsblastId = loyaltyChart.FpsblastId;
+            existingLoyalty.MmoslasherId = loyaltyChart.MmoslasherId;
+            existingLoyalty.RpgstoryMakerId = loyaltyChart.RpgstoryMakerId;
             existingLoyalty.IsLoyalCustomer = loyaltyChart.IsLoyalCustomer;
 
             _dbContext.SaveChanges();
