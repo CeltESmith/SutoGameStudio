@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCSutoGameStudioAPP.Models;
-using CRUDApps.DataAccess.EF.Models;
-using CRUDApps.DataAccess.EF.Context;
+using MVCSutoGameStudio.App.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Context;
 
-namespace MVCSutoGameStudioAPP.Controllers
+namespace MVCSutoGameStudio.App.Controllers
 {
-    public class LoyaltyChartController : Controller
+    public class LoyaltyChartsController : Controller
     {
         private readonly SutoGameStudioContext _Context;
 
-        public LoyaltyChartController(SutoGameStudioContext context)
+        public LoyaltyChartsController(SutoGameStudioContext context)
         {
             _Context = context;
         }
@@ -21,11 +21,11 @@ namespace MVCSutoGameStudioAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int loyaltyChartId, string username, string ownFpsblastGame, string ownMmoslasherGame, string ownRpgstoryMakerGame, string isLoyalCustomer)
+        public IActionResult Index(int loyaltyChartId, int userId, int fpsblastId, int mmoslasherId, int rpgstoryMakerId, string isLoyalCustomer)
         {
             LoyaltyChartViewModel model = new LoyaltyChartViewModel(_Context);
 
-            LoyaltyCharts loyaltyChart = new(loyaltyChartId, username, ownFpsblastGame, ownMmoslasherGame, ownRpgstoryMakerGame, isLoyalCustomer);
+            LoyaltyCharts loyaltyChart = new(loyaltyChartId, userId, fpsblastId, mmoslasherId, rpgstoryMakerId, isLoyalCustomer);
 
             model.SaveLoyaltyChart(loyaltyChart);
             model.IsActionSuccess = true;
