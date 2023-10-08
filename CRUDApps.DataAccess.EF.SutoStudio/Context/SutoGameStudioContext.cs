@@ -20,10 +20,10 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
         {
         }
 
-        public virtual DbSet<Fpsblast> Fpsblast { get; set; }
-        public virtual DbSet<LoyaltyChart> LoyaltyChart { get; set; }
-        public virtual DbSet<Mmoslasher> Mmoslasher { get; set; }
-        public virtual DbSet<RpgstoryMaker> RpgstoryMaker { get; set; }
+        public virtual DbSet<Fpsblasts> Fpsblasts { get; set; }
+        public virtual DbSet<LoyaltyCharts> LoyaltyCharts { get; set; }
+        public virtual DbSet<Mmoslashers> Mmoslashers { get; set; }
+        public virtual DbSet<RpgstoryMakers> RpgstoryMakers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,10 +37,11 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Fpsblast>(entity =>
+            modelBuilder.Entity<Fpsblasts>(entity =>
             {
                 entity.ToTable("FPSBlast");
 
+                entity.HasKey(e => e.FpsblastId);
                 entity.Property(e => e.FpsblastId).HasColumnName("FPSBlastId");
 
                 entity.Property(e => e.Expansion1)
@@ -55,8 +56,10 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
                     .IsFixedLength();
             });
 
-            modelBuilder.Entity<LoyaltyChart>(entity =>
+            modelBuilder.Entity<LoyaltyCharts>(entity =>
             {
+                entity.HasKey(e => e.LoyaltyChartId);
+
                 entity.Property(e => e.LoyaltyChartId).ValueGeneratedNever();
 
                 entity.Property(e => e.FpsblastId).HasColumnName("FPSBlastId");
@@ -97,9 +100,11 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
                     .HasConstraintName("FK_LoyaltyChart_LoyaltyChart");
             });
 
-            modelBuilder.Entity<Mmoslasher>(entity =>
+            modelBuilder.Entity<Mmoslashers>(entity =>
             {
                 entity.ToTable("MMOSlasher");
+
+                entity.HasKey(e => e.MmoslasherId);
 
                 entity.Property(e => e.MmoslasherId).HasColumnName("MMOSlasherId");
 
@@ -120,9 +125,11 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
                     .IsFixedLength();
             });
 
-            modelBuilder.Entity<RpgstoryMaker>(entity =>
+            modelBuilder.Entity<RpgstoryMakers>(entity =>
             {
                 entity.ToTable("RPGStoryMaker");
+
+                entity.HasKey(e => e.RpgstoryMakerId);
 
                 entity.Property(e => e.RpgstoryMakerId).HasColumnName("RPGStoryMakerId");
 
@@ -140,8 +147,9 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
 
             modelBuilder.Entity<Users>(entity =>
             {
-                entity.HasKey(e => e.UserId)
-                    .HasName("PK__Users__1788CC4C29C4423C");
+                entity.HasKey(e => e.UserId);
+
+                entity.Property(e => e.UserId); 
 
                 entity.Property(e => e.CustomerEmail)
                     .IsRequired()
