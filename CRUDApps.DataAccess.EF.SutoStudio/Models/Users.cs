@@ -11,7 +11,7 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
     {
         public Users()
         {
-            LoyaltyChart = new HashSet<LoyaltyChart>();
+            LoyaltyChart = new HashSet<LoyaltyCharts>();
         }
 
         public int UserId { get; set; }
@@ -21,6 +21,16 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
         public string CustomerEmail { get; set; }
         public string CustomerState { get; set; }
 
-        public virtual ICollection<LoyaltyChart> LoyaltyChart { get; set; }
+        public virtual ICollection<LoyaltyCharts> LoyaltyChart { get; set; }
+
+        public Users(int userId, string userName, string customerFirstName, string customerLastName, string customerEmail, string customerState)
+        {
+            UserId = userId;
+            UserName = userName;
+            CustomerFirstName = customerFirstName;
+            CustomerLastName = customerLastName;
+            CustomerEmail = customerEmail;
+            CustomerState = customerState;
+        }
     }
 }
