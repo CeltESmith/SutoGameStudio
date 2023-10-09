@@ -1,9 +1,9 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
-using MVCSutoGameStudioAPP.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
+using MVCSutoGameStudio.App.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MVCSutoGameStudioAPP.Controllers
+namespace MVCSutoGameStudio.App.Controllers
 {
 	public class RpgstoryMakersController : Controller
 	{
@@ -25,7 +25,7 @@ namespace MVCSutoGameStudioAPP.Controllers
 		{
 			RpgstoryMakersViewModel model = new RpgstoryMakersViewModel(_Context);
 
-			RpgstoryMakers rpgstoryMakers = new(rpgstoryMakerId, userName, timePlayed, gameCompleted, ownRpgstoryMakerGame, loyaltyCharts);
+			RpgstoryMakers rpgstoryMakers = new(rpgstoryMakerId, timePlayed, gameCompleted, ownRpgstoryMakerGame);
 
 			model.SaveRpgstoryMakers(rpgstoryMakers);
 			model.IsActionSuccess = true;
