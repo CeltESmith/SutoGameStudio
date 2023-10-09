@@ -1,13 +1,13 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using CRUDApps.DataAccess.EF.Repositories;
 
 
-namespace MVCSutoGameStudioAPP.Models
+namespace MVCSutoGameStudio.App.Models
 {
     public class LoyaltyChartViewModel
     {
-        private readonly LoyaltyChartRepository _repo;
+        private readonly LoyaltyChartsRepository _repo;
 
         public List<LoyaltyCharts> LoyaltyChartsList { get; set; }
         public LoyaltyCharts CurrentLoyaltyChart { get; set; }
@@ -16,14 +16,14 @@ namespace MVCSutoGameStudioAPP.Models
 
         public LoyaltyChartViewModel(SutoGameStudioContext context)
         {
-            _repo = new LoyaltyChartRepository(context);
+            _repo = new LoyaltyChartsRepository(context);
             LoyaltyChartsList = GetAllLoyaltyCharts();
-            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault();
+            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault()!;
         }
 
         public LoyaltyChartViewModel(SutoGameStudioContext context, int loyaltyChartId)
         {
-            _repo = new LoyaltyChartRepository(context);
+            _repo = new LoyaltyChartsRepository(context);
             LoyaltyChartsList = GetAllLoyaltyCharts();
 
             if (loyaltyChartId >0)
@@ -48,14 +48,14 @@ namespace MVCSutoGameStudioAPP.Models
             }
 
             LoyaltyChartsList = GetAllLoyaltyCharts();
-            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault();
+            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault()!;
         }
 
         public void RemoveLoyaltyChart(int loyaltyChartId)
         {
             _repo.Delete(loyaltyChartId);
             LoyaltyChartsList = GetAllLoyaltyCharts();
-            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault();
+            CurrentLoyaltyChart = LoyaltyChartsList.FirstOrDefault()!;
         }
 
         public List<LoyaltyCharts> GetAllLoyaltyCharts()
