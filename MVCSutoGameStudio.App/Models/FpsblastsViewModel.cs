@@ -1,10 +1,10 @@
-﻿using CRUDApps.DataAccess.EF.Context;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
 using CRUDApps.DataAccess.EF.Repositories;
-using CRUDApps.DataAccess.EF.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MVCSutoGameStudioAPP.Models
+namespace MVCSutoGameStudio.App.Models
 {
 	public class FpsblastsViewModel
 	{
@@ -19,7 +19,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo = new FpsblastsRepository(context);
 			FpsblastsList = GetAllFpsblasts();
-			CurrentFpsblasts = FpsblastsList.FirstOrDefault();
+			CurrentFpsblasts = FpsblastsList.FirstOrDefault()!;
 		}
 
 		public FpsblastsViewModel(SutoGameStudioContext context, int fpsblastsId)
@@ -56,7 +56,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo.Delete(fpsblastsId);
 			FpsblastsList = GetAllFpsblasts();
-			CurrentFpsblasts = FpsblastsList.FirstOrDefault();
+			CurrentFpsblasts = FpsblastsList.FirstOrDefault()!;
 		}
 
 		public List<Fpsblasts> GetAllFpsblasts()
