@@ -1,5 +1,5 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,6 @@ namespace CRUDApps.DataAccess.EF.Repositories
 		{
 			Fpsblasts existingfpsblasts = _dbContext.Fpsblasts.Find(fpsblasts.FpsblastId);
 
-			existingfpsblasts.UserName = fpsblasts.UserName;
 			existingfpsblasts.TimePlayed = fpsblasts.TimePlayed;
 			existingfpsblasts.Expansion1 = fpsblasts.Expansion1;
 			existingfpsblasts.OwnFpsblastGame = fpsblasts.OwnFpsblastGame;
@@ -38,9 +37,9 @@ namespace CRUDApps.DataAccess.EF.Repositories
 			return existingfpsblasts.FpsblastId;
 		}
 
-		public bool Delete(int fpsblastsID)
+		public bool Delete(int fpsblastID)
 		{
-			Fpsblasts fpsblasts = _dbContext.Fpsblasts.Find(fpsblastsID);
+			Fpsblasts fpsblasts = _dbContext.Fpsblasts.Find(fpsblastID);
 			_dbContext.Remove(fpsblasts);
 			_dbContext.SaveChanges();
 
