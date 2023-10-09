@@ -38,7 +38,7 @@ namespace CRUDApps.DataAccess.EF.Repositories
 		}
 
 		public bool Delete(int fpsblastID)
-		{
+			{
 			Fpsblasts fpsblasts = _dbContext.Fpsblasts.Find(fpsblastID);
 			_dbContext.Remove(fpsblasts);
 			_dbContext.SaveChanges();
