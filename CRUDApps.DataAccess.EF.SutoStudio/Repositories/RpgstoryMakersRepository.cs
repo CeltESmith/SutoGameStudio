@@ -1,5 +1,5 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +28,9 @@ namespace CRUDApps.DataAccess.EF.Repositories
 		{
 			RpgstoryMakers existingRpgstoryMakers = _dbContext.RpgstoryMakers.Find(rpgstoryMakers.RpgstoryMakerId);
 
-			existingRpgstoryMakers.UserName = rpgstoryMakers.UserName;
 			existingRpgstoryMakers.TimePlayed = rpgstoryMakers.TimePlayed;
 			existingRpgstoryMakers.GameCompleted = rpgstoryMakers.GameCompleted;
 			existingRpgstoryMakers.OwnRpgstoryMakerGame = rpgstoryMakers.OwnRpgstoryMakerGame;
-			existingRpgstoryMakers.LoyaltyCharts = rpgstoryMakers.LoyaltyCharts;
 
 			_dbContext.SaveChanges();
 			return existingRpgstoryMakers.RpgstoryMakerId;
