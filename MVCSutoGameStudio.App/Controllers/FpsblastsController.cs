@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCSutoGameStudioAPP.Models;
-using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+using MVCSutoGameStudio.App.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 
-namespace MVCSutoGameStudioAPP.Controllers
+namespace MVCSutoGameStudio.App.Controllers
 {
 	public class FpsblastsController : Controller
 	{
@@ -25,7 +25,7 @@ namespace MVCSutoGameStudioAPP.Controllers
 		{
 			FpsblastsViewModel model = new FpsblastsViewModel(_Context);
 				
-			Fpsblasts fpsblasts = new(fpsblastId, userName, timePlayed, expansion1, ownFpsblastGame, loyaltyCharts);
+			Fpsblasts fpsblasts = new(fpsblastId, timePlayed, expansion1, ownFpsblastGame);
 
 			model.SaveFpsblasts(fpsblasts);
 			model.IsActionSuccess = true;
