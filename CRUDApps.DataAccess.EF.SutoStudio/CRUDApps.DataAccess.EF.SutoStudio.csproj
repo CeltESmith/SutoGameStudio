@@ -160,14 +160,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\SutoGameStudioContext.cs" />
-    <Compile Include="Models\Fpsblast.cs" />
-    <Compile Include="Models\LoyaltyChart.cs" />
-    <Compile Include="Models\Mmoslasher.cs" />
-    <Compile Include="Models\RpgstoryMaker.cs" />
+    <Compile Include="Models\Fpsblasts.cs" />
+    <Compile Include="Models\LoyaltyCharts.cs" />
+    <Compile Include="Models\Mmoslashers.cs" />
+    <Compile Include="Models\RpgstoryMakers.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FpsblastsRepository.cs" />
-    <Compile Include="Repositories\LoyaltyChartRepository.cs" />
+    <Compile Include="Repositories\LoyaltyChartsRepository.cs" />
     <Compile Include="Repositories\MmoslashersRepository.cs" />
     <Compile Include="Repositories\RpgstoryMakersRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
