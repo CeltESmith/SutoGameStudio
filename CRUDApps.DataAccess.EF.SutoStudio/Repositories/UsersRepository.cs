@@ -1,5 +1,5 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,6 @@ namespace CRUDApps.DataAccess.EF.Repositories
 			existingUser.CustomerLastName = users.CustomerLastName;
 			existingUser.CustomerEmail = users.CustomerEmail;
 			existingUser.CustomerState = users.CustomerState;
-			existingUser.UserNameNavigation = users.UserNameNavigation;
 
 			_dbContext.SaveChanges();
 			return users.UserId;
