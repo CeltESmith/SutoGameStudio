@@ -1,9 +1,9 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using Microsoft.AspNetCore.Mvc;
-using MVCSutoGameStudioAPP.Models;
+using MVCSutoGameStudio.App.Models;
 
-namespace MVCSutoGameStudioAPP.Controllers
+namespace MVCSutoGameStudio.App.Controllers
 {
 	public class MmoslashersController : Controller
 	{
@@ -24,7 +24,7 @@ namespace MVCSutoGameStudioAPP.Controllers
 		public IActionResult Index(int mmoslasherId, string userName, TimeSpan timePlayed, string expansion1, string activeLast30Days, string ownMmoslasherGame, ICollection<Mmoslashers> loyaltyCharts)
 		{
 			MmoslashersViewModel model = new MmoslashersViewModel(_Context);
-			Mmoslashers mmoslasher = new(mmoslasherId, userName, timePlayed, expansion1, activeLast30Days, ownMmoslasherGame, loyaltyCharts);
+			Mmoslashers mmoslasher = new(mmoslasherId, timePlayed, expansion1, activeLast30Days, ownMmoslasherGame);
 
 			model.SaveMmoslashers(mmoslasher);
 			model.IsActionSuccess = true;
