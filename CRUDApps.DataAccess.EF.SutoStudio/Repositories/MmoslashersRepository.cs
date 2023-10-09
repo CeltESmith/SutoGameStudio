@@ -1,5 +1,5 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +28,6 @@ namespace CRUDApps.DataAccess.EF.Repositories
 		{
 			Mmoslashers existingMmoslasher = _dbContext.Mmoslashers.Find(mmoslashers.MmoslasherId);
 
-			existingMmoslasher.UserName = mmoslashers.UserName;
 			existingMmoslasher.TimePlayed = mmoslashers.TimePlayed;
 			existingMmoslasher.Expansion1 = mmoslashers.Expansion1;
 			existingMmoslasher.ActiveLast30Days = mmoslashers.ActiveLast30Days;
