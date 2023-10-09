@@ -1,9 +1,9 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using MVCSutoGameStudioAPP.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using MVCSutoGameStudio.App.Models;
 using Microsoft.AspNetCore.Mvc;
-using CRUDApps.DataAccess.EF.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 
-namespace MVCSutoGameStudioAPP.Controllers
+namespace MVCSutoGameStudio.App.Controllers
 {
 	public class UsersController : Controller
 	{
@@ -24,7 +24,7 @@ namespace MVCSutoGameStudioAPP.Controllers
 		public IActionResult Index(int userId, string userName, string customerFirstName, string customerLastName, string customerEmail, string customerState, LoyaltyCharts userNameNavigation)
 		{
 			UsersViewModel model = new UsersViewModel(_Context);
-			Users users = new(userId, userName, customerFirstName, customerLastName, customerEmail, customerState, userNameNavigation);
+			Users users = new(userId, userName, customerFirstName, customerLastName, customerEmail, customerState);
 
 			model.SaveUsers(users);
 			model.IsActionSuccess = true;
@@ -35,7 +35,7 @@ namespace MVCSutoGameStudioAPP.Controllers
 
 		public IActionResult Update(int id)
 		{
-			UsersViewModel model = new UsersViewModel(_context, id);
+			UsersViewModel model = new UsersViewModel(_Context, id);
 			return View(model);
 		}
 
