@@ -18,7 +18,22 @@ namespace MVCSutoGameStudio.App.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+		public IActionResult Catagory()
+		{
+			return View();
+		}
+
+        public IActionResult CreateInfo()
+        {
+            return View();
+        }
+
+        public IActionResult VerifyUser()
+        {
+            return View();
+        }
+
+		public IActionResult Privacy()
         {
             return View();
         }
