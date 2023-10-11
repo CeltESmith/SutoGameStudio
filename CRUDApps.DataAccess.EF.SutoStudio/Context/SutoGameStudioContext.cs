@@ -21,7 +21,6 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
         }
 
         public virtual DbSet<Fpsblasts> Fpsblasts { get; set; }
-        public virtual DbSet<LoyaltyCharts> LoyaltyCharts { get; set; }
         public virtual DbSet<Mmoslashers> Mmoslashers { get; set; }
         public virtual DbSet<RpgstoryMakers> RpgstoryMakers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
@@ -54,50 +53,6 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Context
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .IsFixedLength();
-            });
-
-            modelBuilder.Entity<LoyaltyCharts>(entity =>
-            {
-                entity.HasKey(e => e.LoyaltyChartId);
-
-                entity.Property(e => e.LoyaltyChartId).ValueGeneratedNever();
-
-                entity.Property(e => e.FpsblastId).HasColumnName("FPSBlastId");
-
-                entity.Property(e => e.IsLoyalCustomer)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.MmoslasherId).HasColumnName("MMOSlasherId");
-
-                entity.Property(e => e.RpgstoryMakerId).HasColumnName("RPGStoryMakerId");
-
-                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
-
-                entity.HasOne(d => d.Fpsblast)
-                    .WithMany(p => p.LoyaltyChart)
-                    .HasForeignKey(d => d.FpsblastId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_LoyaltyChart_FPSBlast");
-
-                entity.HasOne(d => d.Mmoslasher)
-                    .WithMany(p => p.LoyaltyChart)
-                    .HasForeignKey(d => d.MmoslasherId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_LoyaltyChart_MMOSlasher");
-
-                entity.HasOne(d => d.RpgstoryMaker)
-                    .WithMany(p => p.LoyaltyChart)
-                    .HasForeignKey(d => d.RpgstoryMakerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_LoyaltyChart_RPGStoryMaker");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.LoyaltyChart)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_LoyaltyChart_LoyaltyChart");
             });
 
             modelBuilder.Entity<Mmoslashers>(entity =>
