@@ -1,8 +1,8 @@
 ﻿using CRUDApps.DataAccess.EF.Repositories;
-using CRUDApps.DataAccess.EF.Models;
-using CRUDApps.DataAccess.EF.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Context;
 
-namespace MVCSutoGameStudioAPP.Models
+namespace MVCSutoGameStudio.App.Models
 {
 	public class MmoslashersViewModel
 	{
@@ -17,7 +17,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo = new MmoslashersRepository(context);
 			MmoslashersList = GetAllMmoslashers();
-			CurrentMmoslashers = MmoslashersList.FirstOrDefault();
+			CurrentMmoslashers = MmoslashersList.FirstOrDefault()!;
 		}
 
 		public MmoslashersViewModel(SutoGameStudioContext context, int mmoslasherId)
@@ -54,7 +54,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo.Delete(mmoslasherId);
 			MmoslashersList = GetAllMmoslashers();
-			CurrentMmoslashers = MmoslashersList.FirstOrDefault();
+			CurrentMmoslashers = MmoslashersList.FirstOrDefault()!;
 		}
 
 		public List<Mmoslashers> GetAllMmoslashers()

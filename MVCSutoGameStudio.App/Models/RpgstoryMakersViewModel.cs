@@ -1,8 +1,8 @@
 ﻿using CRUDApps.DataAccess.EF.Repositories;
-using CRUDApps.DataAccess.EF.Models;
-using CRUDApps.DataAccess.EF.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
+using CRUDApps.DataAccess.EF.SutoStudio.Context;
 
-namespace MVCSutoGameStudioAPP.Models
+namespace MVCSutoGameStudio.App.Models
 {
 	public class RpgstoryMakersViewModel
 	{
@@ -17,7 +17,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo = new RpgstoryMakersRepository(context);
 			RpgstoryMakersList = GetAllRpgstoryMakers();
-			CurrentRpgstoryMakers = RpgstoryMakersList.FirstOrDefault();
+			CurrentRpgstoryMakers = RpgstoryMakersList.FirstOrDefault()!;
 		}
 
 		public RpgstoryMakersViewModel(SutoGameStudioContext context, int rpgstoryMakerId)
@@ -54,7 +54,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo.Delete(rpgstoryMakerId);
 			RpgstoryMakersList = GetAllRpgstoryMakers();
-			CurrentRpgstoryMakers = RpgstoryMakersList.FirstOrDefault();
+			CurrentRpgstoryMakers = RpgstoryMakersList.FirstOrDefault()!;
 		}
 
 		public List<RpgstoryMakers> GetAllRpgstoryMakers()

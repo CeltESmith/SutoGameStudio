@@ -1,8 +1,8 @@
-﻿using CRUDApps.DataAccess.EF.Context;
-using CRUDApps.DataAccess.EF.Models;
+﻿using CRUDApps.DataAccess.EF.SutoStudio.Context;
+using CRUDApps.DataAccess.EF.SutoStudio.Models;
 using CRUDApps.DataAccess.EF.Repositories;
 
-namespace MVCSutoGameStudioAPP.Models
+namespace MVCSutoGameStudio.App.Models
 {
 	public class UsersViewModel
 	{
@@ -17,7 +17,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo = new UsersRepository(context);
 			UsersList = GetAllUsers();
-			CurrentUsers = UsersList.FirstOrDefault();
+			CurrentUsers = UsersList.FirstOrDefault()!;
 		}
 
 		public UsersViewModel(SutoGameStudioContext context, int userId)
@@ -34,7 +34,7 @@ namespace MVCSutoGameStudioAPP.Models
 			}
 		}
 
-		public void SaveUSers(Users users)
+		public void SaveUsers(Users users)
 		{
 			if (users.UserId > 0 )
 			{
@@ -53,7 +53,7 @@ namespace MVCSutoGameStudioAPP.Models
 		{
 			_repo.Delete(userId);
 			UsersList = GetAllUsers();
-			CurrentUsers = UsersList.FirstOrDefault();
+			CurrentUsers = UsersList.FirstOrDefault()!;
 		}
 
 		public List<Users> GetAllUsers()
