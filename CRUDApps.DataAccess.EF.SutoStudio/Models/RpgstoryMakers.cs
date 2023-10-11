@@ -11,7 +11,7 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
     {
         public RpgstoryMakers()
         {
-            LoyaltyChart = new HashSet<LoyaltyCharts>();
+            
         }
 
         public int RpgstoryMakerId { get; set; }
@@ -19,16 +19,12 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
         public string GameCompleted { get; set; }
         public string OwnRpgstoryMakerGame { get; set; }
 
-        public virtual ICollection<LoyaltyCharts> LoyaltyChart { get; set; }
-
         public RpgstoryMakers(int rpgstoryMakerId, TimeSpan timePlayed, string gameCompleted, string ownRpgstoryMakerGame)
         {
             RpgstoryMakerId = rpgstoryMakerId;
             TimePlayed = timePlayed;
             GameCompleted = gameCompleted;
             OwnRpgstoryMakerGame = ownRpgstoryMakerGame;
-
-            LoyaltyChart = new HashSet<LoyaltyCharts>();
         }
     }
 }

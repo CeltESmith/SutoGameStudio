@@ -11,7 +11,7 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
     {
         public Mmoslashers()
         {
-            LoyaltyChart = new HashSet<LoyaltyCharts>();
+            
         }
 
         public int MmoslasherId { get; set; }
@@ -19,8 +19,6 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
         public string Expansion1 { get; set; }
         public string ActiveLast30Days { get; set; }
         public string OwnMmoslasherGame { get; set; }
-
-        public virtual ICollection<LoyaltyCharts> LoyaltyChart { get; set; }
 
         public Mmoslashers(int mmoslasherId, TimeSpan timePlayed, string expansion1, string activeLast30days, string ownMmoslasherGame)
         {
@@ -30,7 +28,6 @@ namespace CRUDApps.DataAccess.EF.SutoStudio.Models
             ActiveLast30Days = activeLast30days;
             OwnMmoslasherGame = ownMmoslasherGame;
 
-            LoyaltyChart = new HashSet<LoyaltyCharts>();
         }
     }
 }
