@@ -21,7 +21,7 @@ namespace MVCSutoGameStudio.App.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Index(int rpgstoryMakerId, string userName, TimeSpan timePlayed, string gameCompleted, string ownRpgstoryMakerGame, ICollection<LoyaltyCharts> loyaltyCharts)
+		public IActionResult Index(int rpgstoryMakerId, string userName, TimeSpan timePlayed, string gameCompleted, string ownRpgstoryMakerGame)
 		{
 			RpgstoryMakersViewModel model = new RpgstoryMakersViewModel(_Context);
 

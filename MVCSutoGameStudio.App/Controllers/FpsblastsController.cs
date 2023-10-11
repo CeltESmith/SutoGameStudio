@@ -47,10 +47,12 @@ namespace MVCSutoGameStudio.App.Controllers
 			if (id> 0)
 			{
 				model.RemoveFpsblasts(id);
+				model.IsActionSuccess = true;
+				model.ActionMessage = "First Person Shooter entry has been deleted successfully.";
 			}
 
-			model.IsActionSuccess = true;
-			model.ActionMessage = "First Person Shooter entry has been deleted successfully.";
+			//model.IsActionSuccess = true;
+			//model.ActionMessage = "First Person Shooter entry has been deleted successfully.";
 			return View("Index", model);
 		}
 	}

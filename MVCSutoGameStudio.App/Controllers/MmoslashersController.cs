@@ -45,10 +45,10 @@ namespace MVCSutoGameStudio.App.Controllers
 			if (id>0)
 			{
 				model.RemoveMmoslashers(id);
+				model.IsActionSuccess = true;
+				model.ActionMessage = "Mass Multiplayer Online user infom has been deleted.";
 			}
 
-			model.IsActionSuccess = true;
-			model.ActionMessage = "Mass Multiplayer Online user infom has been deleted.";
 			return View("Index", model);
 		}
 	}

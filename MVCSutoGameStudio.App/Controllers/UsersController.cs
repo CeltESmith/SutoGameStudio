@@ -21,7 +21,7 @@ namespace MVCSutoGameStudio.App.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Index(int userId, string userName, string customerFirstName, string customerLastName, string customerEmail, string customerState, LoyaltyCharts userNameNavigation)
+		public IActionResult Index(int userId, string userName, string customerFirstName, string customerLastName, string customerEmail, string customerState)
 		{
 			UsersViewModel model = new UsersViewModel(_Context);
 			Users users = new(userId, userName, customerFirstName, customerLastName, customerEmail, customerState);
