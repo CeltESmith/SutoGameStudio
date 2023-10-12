@@ -1,0 +1,43 @@
+﻿@model FpsblastsViewModel
+@using CRUDApps.DataAccess.EF.SutoStudio.Models
+
+@{
+	string pageType = Model.CurrentFpsblasts.FpsblastId > 0 ? "Update First Person Shooter Blast data" : "Add New First Person Shooter Blast Data";
+	ViewData["Title"] = $"{pageType}";
+}
+
+<form action="~/FpsBlasts/Index" method="post">
+	<div>
+		<div class="row">
+			<div class="col-6 offset-3 text-center">
+				<h1 class="display-4" style="margin: 20px 0px;">@pageType</h1>
+			</div>
+		</div>
+
+		<div>
+			<div class="form-row">
+				<div class="col-md-3 offset-md-3 form-group">
+					<label>Time Played</label>
+					<input type="time" class="form-control" name="timePlayed" value="@Model.CurrentFpsblasts.TimePlayed" />
+				</div>
+				<div class="col-md-3 form-group">
+					<label>Do you have Expansion 1</label>
+					<input type="text" class="form-control" name="expansion1" value="@Model.CurrentFpsblasts.Expansion1" />
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 offset-md-3 form-group">
+					<label>Do You Own FPS Blasts</label>
+					<input type="text" class="form-control" name="ownFpsblastGame" value="@Model.CurrentFpsblasts.OwnFpsblastGame" />
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 offset-md-3">
+					<button type="button" class="btn btn-secondary" onclick="location.href = '/Fpsblasts/Index'">Cancel</button>
+					<button type="submit" class="btn btn-primary">SAVE FPS DATA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="fpsblastId" value="@Model.CurrentFpsblasts.FpsblastId"/>
+</form>
