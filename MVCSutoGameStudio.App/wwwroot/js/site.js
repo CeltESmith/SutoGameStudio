@@ -5,3 +5,7 @@
 function openlocation(url) {
     window.location.href = url;
 }
+
+function closeAlert() {
+    $('#alert-state').alert('close') //class state
+}
