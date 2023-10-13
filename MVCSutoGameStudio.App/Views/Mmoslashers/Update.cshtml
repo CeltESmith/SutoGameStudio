@@ -1,0 +1,49 @@
+﻿@model MmoslashersViewModel
+@using CRUDApps.DataAccess.EF.SutoStudio.Models
+
+@{
+	string pageType = Model.CurrentMmoslashers.MmoslasherId > 0 ? "Update Mass Multiplayer Online Slasher data" : "Add New Mass Multiplayer Online Slasher Data";
+	ViewData["Title"] = $"{pageType}";
+}
+
+<form action="~/Mmoslashers/Index" method="post">
+	<div>
+		<div class="row">
+			<div class="col-6 offset-3 text-center">
+				<h1 class="display-4" style="margin: 20px 0px;">@pageType</h1>
+			</div>
+		</div>
+
+		<div>
+			<div class="form-row">
+				<div class="col-md-3 offset-md-3 form-group">
+					<label>Time Played</label>
+					<input type="time" class="form-control" name="timePlayed" value="@Model.CurrentMmoslashers.TimePlayed" />
+				</div>
+				<div class="col-md-3 form-group">
+					<label>Do you have Expansion 1</label>
+					<input type="text" class="form-control" name="expansion1" value="@Model.CurrentMmoslashers.Expansion1" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-md-3 offset-md-3 form-group">
+					<label>Active within last 30 Days?</label>
+					<input type="text" class="form-control" name="activeLast30days" value="@Model.CurrentMmoslashers.ActiveLast30Days" />
+				</div>
+				<div class="col-md-3 form-group">
+					<label>Do You Own Mmo Slasher</label>
+					<input type="text" class="form-control" name="ownMmoslasherGame" value="@Model.CurrentMmoslashers.OwnMmoslasherGame" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-md-6 offset-md-3">
+					<button type="button" class="btn btn-secondary" onclick="location.href = '/Mmoslashers/Index'">Cancel</button>
+					<button type="submit" class="btn btn-primary">SAVE MMO DATA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="mmoslasherId" value="@Model.CurrentMmoslashers.MmoslasherId" />
+</form>
