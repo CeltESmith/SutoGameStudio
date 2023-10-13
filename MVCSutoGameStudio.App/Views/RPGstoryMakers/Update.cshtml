@@ -1,0 +1,43 @@
+﻿@model RpgstoryMakersViewModel
+@using CRUDApps.DataAccess.EF.SutoStudio.Models
+
+@{
+	string pageType = Model.CurrentRpgstoryMakers.RpgstoryMakerId > 0 ? "Update Role Playing Game Story Maker data" : "Add New Role Playing Game Story Maker Data";
+	ViewData["Title"] = $"{pageType}";
+}
+
+<form action = "~/RpgstoryMakers/Index" method = "post" >
+	<div>
+		<div class= "row" >
+			<div class= "col-6 offset-3 text-center" >
+				<h1 class= "display-4" style = "margin: 20px 0px;"> @pageType </h1>
+			</div>
+		</div>
+
+		<div>
+			<div class= "form-row" >
+				<div class= "col-md-3 offset-md-3 form-group">
+					<label> Time Played </label>
+					<input type = "time" class= "form-control" name = "timePlayed" value = "@Model.CurrentRpgstoryMakers.TimePlayed" />
+				</div >
+				<div class= "col-md-3 form-group" >
+					<label> Did you Complete the game?</label>
+					<input type="text" class="form-control" name="gameCompleted" value="@Model.CurrentRpgstoryMakers.GameCompleted" />
+				</div>
+			</div>
+			<div class= "form-row" >
+				<div class= "col-md-6 offset-md-3 form-group" >
+					<label> Do You Own RPG Story Maker?</label>
+					<input type="text" class="form-control" name="ownRpgstoryMakerGame" value="@Model.CurrentRpgstoryMakers.OwnRpgstoryMakerGame" />
+				</div >
+			</div >
+			<div class= "form-row" >
+				<div class= "col-md-6 offset-md-3" >
+					<button type = "button" class= "btn btn-secondary" onclick = "location.href = '/RpgstoryMakers/Index'" > Cancel </button>
+					<button type = "submit" class= "btn btn-primary" > SAVE RPG DATA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<input type="hidden" name="rpgstoryMakerId" value="@Model.CurrentRpgstoryMakers.RpgstoryMakerId" />
+</form>
