@@ -1,0 +1,56 @@
+﻿@model UsersViewModel
+@using CRUDApps.DataAccess.EF.SutoStudio.Models
+
+@{
+	string pageType = Model.CurrentUsers.UserId > 0 ? "Update User data" : "Add New User Data";
+	ViewData["Title"] = $"{pageType}";
+}
+
+<form action="~/Users/Index" method="post">
+	<div>
+		<div class="row">
+			<div class="col-6 offset-3 text-center">
+				<h1 class="display-4" style="margin: 20px 0px;">@pageType</h1>
+			</div>
+		</div>
+
+		<div>
+			<div class="form-row">
+				<div class="col-md-6 offset-md-3 form-group">
+					<label>User Name</label>
+					<input type="text" class="form-control" name="userName" value="@Model.CurrentUsers.UserName" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-md-3 offset-md-3 form-group">
+					<label>First Name</label>
+					<input type="text" class="form-control" name="customerFirstName" value="@Model.CurrentUsers.CustomerFirstName" />
+				</div>
+				<div class="col-md-3 form-group">
+					<label>Last Name</label>
+					<input type="text" class="form-control" name="customerLastName" value="@Model.CurrentUsers.CustomerLastName" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-md-3 offset-md-3 form-group">
+					<label>Customer Email</label>
+					<input type="text" class="form-control" name="customerEmail" value="@Model.CurrentUsers.CustomerEmail" />
+				</div>
+				<div class="col-md-3 form-group">
+					<label>State</label>
+					<input type="text" class="form-control" name="customerState" value="@Model.CurrentUsers.CustomerState" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-md-6 offset-md-3">
+					<button type="button" class="btn btn-secondary" onclick="location.href = '/Users/Index'">Cancel</button>
+					<button type="submit" class="btn btn-primary">SAVE USERS DATA</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="userId" value="@Model.CurrentUsers.UserId" />
+</form>
